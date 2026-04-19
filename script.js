@@ -7,8 +7,10 @@ const themeToggle = document.querySelector('#themeToggle');
 const root = document.documentElement;
 const expandButtons = document.querySelectorAll('[data-expand-target]');
 const galleryTriggers = Array.from(document.querySelectorAll('.project-gallery .lightbox-trigger'));
+const certificateButtons = Array.from(document.querySelectorAll('.cert-view-btn[data-certificate]'));
 const lightbox = document.querySelector('#galleryLightbox');
 const lightboxImage = lightbox?.querySelector('.lightbox-image') ?? null;
+const lightboxDocument = lightbox?.querySelector('.lightbox-document') ?? null;
 const lightboxCaption = lightbox?.querySelector('.lightbox-caption') ?? null;
 const lightboxCloseButton = lightbox?.querySelector('.lightbox-close') ?? null;
 const lightboxPrevButton = lightbox?.querySelector('.lightbox-prev') ?? null;
@@ -176,6 +178,20 @@ function openExpand(panel, button) {
     panel.classList.add('open');
     panel.setAttribute('aria-hidden', 'false');
     panel.style.maxHeight = `${panel.scrollHeight}px`;
+
+    // Keep expanded height in sync as lazy images load inside the panel.
+    panel.querySelectorAll('img').forEach((image) => {
+        if (image.complete) {
+            return;
+        }
+
+        image.addEventListener('load', () => {
+            if (panel.classList.contains('open')) {
+                panel.style.maxHeight = `${panel.scrollHeight}px`;
+            }
+        }, { once: true });
+    });
+
     button.setAttribute('aria-expanded', 'true');
     button.textContent = 'Hide Details';
     activeExpand = panel;
@@ -232,10 +248,14 @@ function applyLightboxImage(index, withTransition = true) {
 
     const normalizedIndex = (index + activeGalleryImages.length) % activeGalleryImages.length;
     const target = activeGalleryImages[normalizedIndex];
-    const figure = target.closest('.gallery-item');
-    const caption = figure?.querySelector('figcaption')?.textContent ?? target.alt;
+    const figure = typeof target.closest === 'function' ? target.closest('.gallery-item') : null;
+    const caption = figure?.querySelector('figcaption')?.textContent ?? target.dataset?.caption ?? target.alt;
 
     const updateContent = () => {
+        lightbox?.classList.remove('document-mode');
+        if (lightboxDocument) {
+            lightboxDocument.src = 'about:blank';
+        }
         lightboxImage.src = target.src;
         lightboxImage.alt = target.alt;
         lightboxCaption.textContent = caption;
@@ -254,11 +274,29 @@ function applyLightboxImage(index, withTransition = true) {
     }, 140);
 }
 
+function openLightboxDocument(source, caption) {
+    if (!lightbox || !lightboxDocument || !lightboxCaption) {
+        return;
+    }
+
+    lightbox.classList.add('document-mode');
+    lightboxImage.src = '';
+    lightboxImage.alt = '';
+    lightboxDocument.src = encodeURI(source);
+    lightboxCaption.textContent = caption;
+    activeGalleryImages = [];
+    activeImageIndex = 0;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+}
+
 function openLightbox(index) {
     if (!lightbox) {
         return;
     }
 
+    lightbox.classList.remove('document-mode');
     applyLightboxImage(index, false);
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
@@ -270,6 +308,10 @@ function closeLightbox() {
         return;
     }
 
+    lightbox.classList.remove('document-mode');
+    if (lightboxDocument) {
+        lightboxDocument.src = 'about:blank';
+    }
     lightbox.classList.remove('open');
     lightbox.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('lightbox-open');
@@ -293,6 +335,28 @@ galleryTriggers.forEach((img) => {
         activeGalleryImages = scopedImages;
         const localIndex = scopedImages.indexOf(img);
         openLightbox(localIndex >= 0 ? localIndex : 0);
+    });
+});
+
+certificateButtons.forEach((button) => {
+    const openCertificate = () => {
+        const certificateSource = button.dataset.certificate;
+        if (!certificateSource) {
+            return;
+        }
+
+        const caption = button.dataset.caption ?? 'Certificate';
+        openLightboxDocument(certificateSource, caption);
+    };
+
+    button.addEventListener('click', openCertificate);
+    button.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') {
+            return;
+        }
+
+        event.preventDefault();
+        openCertificate();
     });
 });
 

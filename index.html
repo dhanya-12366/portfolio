@@ -26,22 +26,27 @@
         <div class="shell nav-shell">
             <a class="brand" href="#top" aria-label="Go to top">DC</a>
 
-            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-wrapper">
+                <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+                    <a class="nav-link" href="#about">About</a>
+                    <a class="nav-link" href="#skills">Skills</a>
+                    <a class="nav-link" href="#projects">Projects</a>
+                    <a class="nav-link" href="#contact">Contact</a>
+                </nav>
+            </div>
 
-            <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-                <a class="nav-link" href="#about">About</a>
-                <a class="nav-link" href="#skills">Skills</a>
-                <a class="nav-link" href="#projects">Projects</a>
-                <a class="nav-link" href="#contact">Contact</a>
-            </nav>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light mode">
+                    <span class="theme-icon" aria-hidden="true">◐</span>
+                </button>
 
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light mode">
-                <span class="theme-icon" aria-hidden="true">◐</span>
-            </button>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+                    aria-controls="site-nav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -301,8 +306,6 @@
                         <div class="project-links">
                             <a class="btn btn-chip" href="https://github.com/your-username/learnova-x" target="_blank"
                                 rel="noopener noreferrer">GitHub</a>
-                            <a class="btn btn-chip" href="https://example.com" target="_blank"
-                                rel="noopener noreferrer">Live Demo</a>
                             <button class="btn btn-chip" type="button" data-expand-target="learnovaExpand"
                                 aria-expanded="false" aria-controls="learnovaExpand">View Details</button>
                         </div>
@@ -384,8 +387,6 @@
                         <div class="project-links">
                             <a class="btn btn-chip" href="https://github.com/your-username/risc-vs-cisc-analyzer"
                                 target="_blank" rel="noopener noreferrer">GitHub</a>
-                            <a class="btn btn-chip" href="https://example.com" target="_blank"
-                                rel="noopener noreferrer">Live Demo</a>
                             <button class="btn btn-chip" type="button" data-expand-target="riscExpand"
                                 aria-expanded="false" aria-controls="riscExpand">View Details</button>
                         </div>
@@ -403,30 +404,6 @@
                                     consumption while visualizing stage-wise pipeline behavior and bottleneck
                                     patterns.
                                 </p>
-
-                                <h4>Image Gallery</h4>
-                                <div class="project-gallery" aria-label="RISC vs CISC project gallery">
-                                    <figure class="gallery-item">
-                                        <img class="lightbox-trigger" src="risc-dashboard.png"
-                                            alt="RISC vs CISC dashboard overview" loading="lazy" />
-                                        <figcaption>Dashboard overview</figcaption>
-                                    </figure>
-                                    <figure class="gallery-item">
-                                        <img class="lightbox-trigger" src="risc-charts.png"
-                                            alt="Performance charts for RISC and CISC metrics" loading="lazy" />
-                                        <figcaption>Performance charts</figcaption>
-                                    </figure>
-                                    <figure class="gallery-item">
-                                        <img class="lightbox-trigger" src="risc-pipeline.png"
-                                            alt="Pipeline stage visualization of instruction flow" loading="lazy" />
-                                        <figcaption>Pipeline visualization</figcaption>
-                                    </figure>
-                                    <figure class="gallery-item">
-                                        <img class="lightbox-trigger" src="risc-metrics.png"
-                                            alt="Comparison panel for CPI cycles time and energy" loading="lazy" />
-                                        <figcaption>Metrics comparison</figcaption>
-                                    </figure>
-                                </div>
 
                                 <h4>Key Features</h4>
                                 <ul class="feature-list">
@@ -450,32 +427,40 @@
                     </div>
                 </article>
 
-                <article class="project-band featured-agrisync">
+                <article class="project-band featured-agrisync reveal">
                     <div class="project-media">
                         <div class="media-frame media-agrisync">
                             <div class="agrisync-pill-row" aria-hidden="true">
                                 <span>Live Sensors</span>
-                                <span>AI Decisions</span>
+                                <span>Pest Audio AI</span>
                                 <span>Auto Irrigation</span>
                             </div>
-                            <p class="agrisync-label">Smart Irrigation Control System</p>
+                            <div class="agrisync-signal-row" aria-hidden="true">
+                                <span class="agri-icon-chip">
+                                    <span class="agri-drop-icon"></span>
+                                    <span>Irrigation</span>
+                                </span>
+                                <span class="agri-icon-chip">
+                                    <span class="agri-wave-icon"><i></i><i></i><i></i></span>
+                                    <span>Pest Detection</span>
+                                </span>
+                            </div>
+                            <p class="agrisync-label">Unified Smart Agriculture Engine</p>
                         </div>
                     </div>
                     <div class="project-info glass">
-                        <h3>AgriSync &mdash; AI-Powered Smart Irrigation System for Intelligent Farming</h3>
+                        <h3>AgriSync &mdash; AI-Powered Smart Agriculture System with Intelligent Irrigation &amp; Pest
+                            Detection</h3>
                         <p>
-                            An intelligent IoT-based irrigation system that uses real-time sensor data and AI
-                            decision-making to automate water usage and improve crop efficiency.
+                            IoT and AI-based system for automated irrigation and audio-based pest detection.
                         </p>
                         <div class="stack-row">
                             <span>Arduino</span><span>Python</span><span>Flask</span><span>SQLite</span>
-                            <span>IoT Sensors</span><span>Machine Learning</span>
+                            <span>IoT Sensors</span><span>Machine Learning</span><span>Audio Processing</span>
                         </div>
                         <div class="project-links">
                             <a class="btn btn-chip" href="https://github.com/dhanya-12366/agrisync.git" target="_blank"
                                 rel="noopener noreferrer">GitHub</a>
-                            <a class="btn btn-chip" href="https://example.com" target="_blank"
-                                rel="noopener noreferrer">Live Demo</a>
                             <button class="btn btn-chip" type="button" data-expand-target="agrisyncExpand"
                                 aria-expanded="false" aria-controls="agrisyncExpand">View Details</button>
                         </div>
@@ -483,58 +468,80 @@
                         <section class="project-expand" id="agrisyncExpand" aria-hidden="true">
                             <div class="project-expand-content">
                                 <p>
-                                    AgriSync is a smart irrigation system that combines IoT sensors, real-time data
-                                    processing, and AI-based decision-making to optimize water usage in agriculture.
+                                    AgriSync is a unified intelligent agriculture platform that combines two connected
+                                    AI modules: an IoT-powered irrigation controller and an audio-based pest detection
+                                    engine. Together, they help optimize water usage and protect crops with faster,
+                                    data-driven decisions.
                                 </p>
-                                <p>
-                                    The system continuously monitors soil moisture, temperature, and environmental
-                                    conditions using sensors connected to an Arduino microcontroller. This data is
-                                    processed in a Python-based backend along with live weather data from external
-                                    APIs.
-                                </p>
-                                <p>
-                                    Based on this analysis, the system automatically controls irrigation through a
-                                    relay module, ensuring that crops receive water only when needed. A web-based
-                                    dashboard provides real-time monitoring, manual control, and data visualization.
-                                </p>
-                                <p>
-                                    Additionally, the system includes a machine learning-based pest detection module to
-                                    enhance crop protection and improve productivity.
-                                </p>
+
+                                <div class="agri-dual-grid" aria-label="AgriSync dual feature modules">
+                                    <article class="agri-feature-card">
+                                        <div class="agri-feature-heading">
+                                            <span class="agri-drop-icon" aria-hidden="true"></span>
+                                            <h4>Smart Irrigation System</h4>
+                                            <span class="agri-feature-tag">IoT + Automation</span>
+                                        </div>
+                                        <p>
+                                            Monitors soil and climate conditions in real time, predicts watering needs,
+                                            and controls irrigation hardware automatically to reduce water waste.
+                                        </p>
+                                        <ul class="feature-list agri-feature-list">
+                                            <li>Live soil moisture and temperature sensing</li>
+                                            <li>Weather-aware irrigation decisions</li>
+                                            <li>Automated relay-based pump control</li>
+                                        </ul>
+                                    </article>
+
+                                    <article class="agri-feature-card">
+                                        <div class="agri-feature-heading">
+                                            <span class="agri-wave-icon" aria-hidden="true"><i></i><i></i><i></i></span>
+                                            <h4>Pest Detection System</h4>
+                                            <span class="agri-feature-tag">Audio + ML</span>
+                                        </div>
+                                        <p>
+                                            Uses audio signal capture and machine learning inference to detect pest
+                                            activity patterns early, enabling timely intervention and crop protection.
+                                        </p>
+                                        <ul class="feature-list agri-feature-list">
+                                            <li>Audio feature extraction for pest cues</li>
+                                            <li>ML-based pest activity classification</li>
+                                            <li>Alert support through dashboard insights</li>
+                                        </ul>
+                                    </article>
+                                </div>
 
                                 <h4>Image Gallery</h4>
                                 <div class="project-gallery" aria-label="AgriSync project gallery">
                                     <figure class="gallery-item">
-                                        <img class="lightbox-trigger" src="dashboard.png"
-                                            alt="AgriSync dashboard interface showing sensor metrics" loading="lazy" />
-                                        <figcaption>Real-time dashboard</figcaption>
-                                    </figure>
-                                    <figure class="gallery-item">
-                                        <img class="lightbox-trigger" src="dashboard2.png"
-                                            alt="AgriSync mobile dashboard view" loading="lazy" />
-                                        <figcaption>Mobile dashboard view</figcaption>
-                                    </figure>
-                                    <figure class="gallery-item">
                                         <img class="lightbox-trigger" src="circuit.png"
-                                            alt="AgriSync circuit design with Arduino and sensor wiring"
+                                            alt="AgriSync sensor setup with Arduino and connected probes"
                                             loading="lazy" />
-                                        <figcaption>Circuit design and wiring</figcaption>
+                                        <figcaption>Sensor setup</figcaption>
+                                    </figure>
+                                    <figure class="gallery-item">
+                                        <img class="lightbox-trigger" src="dashboard.png"
+                                            alt="AgriSync dashboard showing irrigation and pest insights"
+                                            loading="lazy" />
+                                        <figcaption>Integrated dashboard</figcaption>
                                     </figure>
                                     <figure class="gallery-item">
                                         <img class="lightbox-trigger" src="setup.png"
-                                            alt="Physical AgriSync hardware prototype setup" loading="lazy" />
-                                        <figcaption>Hardware prototype setup</figcaption>
+                                            alt="AgriSync intelligent irrigation hardware setup" loading="lazy" />
+                                        <figcaption>Irrigation system</figcaption>
+                                    </figure>
+                                    <figure class="gallery-item">
+                                        <img class="lightbox-trigger" src="dashboard2.png"
+                                            alt="Audio-based pest detection analytics view" loading="lazy" />
+                                        <figcaption>Pest detection (audio / ML)</figcaption>
                                     </figure>
                                 </div>
 
                                 <h4>Key Features</h4>
                                 <ul class="feature-list">
-                                    <li>Real-time sensor monitoring</li>
-                                    <li>AI-based irrigation decisions</li>
-                                    <li>Weather data integration</li>
-                                    <li>Automated pump control</li>
-                                    <li>Interactive dashboard</li>
-                                    <li>Pest detection system</li>
+                                    <li>Unified architecture for irrigation automation and pest intelligence</li>
+                                    <li>Real-time IoT telemetry, control logic, and dashboard monitoring</li>
+                                    <li>Audio-based pest pattern detection with ML-assisted classification</li>
+                                    <li>Action-ready insights for water optimization and crop protection</li>
                                 </ul>
 
                                 <h4>Tech Stack</h4>
@@ -544,6 +551,75 @@
                                     <span>Flask</span>
                                     <span>SQLite</span>
                                     <span>IoT Sensors</span>
+                                    <span>Machine Learning</span>
+                                    <span>Audio Processing</span>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </article>
+
+                <article class="project-band reverse featured-employee reveal">
+                    <div class="project-media">
+                        <div class="media-frame media-employee">
+                            <div class="employee-chip-row" aria-hidden="true">
+                                <span>Predictive Alerts</span>
+                                <span>Workforce Analytics</span>
+                                <span>Smart CRUD</span>
+                            </div>
+                            <p class="employee-highlight">AI-driven analytics</p>
+                            <div class="employee-chart-bars" aria-hidden="true">
+                                <span style="--h: 40%"></span>
+                                <span style="--h: 62%"></span>
+                                <span style="--h: 78%"></span>
+                                <span style="--h: 56%"></span>
+                                <span style="--h: 84%"></span>
+                            </div>
+                            <div class="employee-line-track" aria-hidden="true">
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-info glass">
+                        <h3>Smart Employee Intelligence System &mdash; AI-Driven Workforce Analytics Platform</h3>
+                        <p>
+                            An intelligent employee management system combining CRUD operations with analytics,
+                            predictive alerts, and data visualization.
+                        </p>
+                        <div class="stack-row">
+                            <span>React</span><span>TypeScript</span><span>Python</span><span>FastAPI</span>
+                            <span>PostgreSQL</span><span>Plotly</span><span>Machine Learning</span>
+                        </div>
+                        <div class="project-links">
+                            <button class="btn btn-chip" type="button" data-expand-target="employeeExpand"
+                                aria-expanded="false" aria-controls="employeeExpand">View Details</button>
+                        </div>
+
+                        <section class="project-expand" id="employeeExpand" aria-hidden="true">
+                            <div class="project-expand-content">
+                                <p>
+                                    Smart Employee Intelligence System is an enterprise-ready workforce platform that
+                                    unifies employee lifecycle management with advanced analytics. It blends reliable
+                                    CRUD workflows with AI-assisted trend analysis, helping teams detect attrition
+                                    risks, productivity shifts, and role-based performance gaps earlier.
+                                </p>
+
+                                <h4>Key Features</h4>
+                                <ul class="feature-list">
+                                    <li>Employee CRUD with role-aware access and audit-safe operations</li>
+                                    <li>AI-driven analytics highlighting productivity and retention signals</li>
+                                    <li>Predictive alerts for risk-prone teams and performance anomalies</li>
+                                    <li>Interactive visual dashboards for executive and HR-level decisions</li>
+                                </ul>
+
+                                <h4>Tech Stack</h4>
+                                <div class="stack-row modal-stack">
+                                    <span>React</span>
+                                    <span>TypeScript</span>
+                                    <span>Python</span>
+                                    <span>FastAPI</span>
+                                    <span>PostgreSQL</span>
+                                    <span>Plotly</span>
                                     <span>Machine Learning</span>
                                 </div>
                             </div>
@@ -575,8 +651,6 @@
                         <div class="project-links">
                             <a class="btn btn-chip" href="https://github.com/your-username/threadwave" target="_blank"
                                 rel="noopener noreferrer">GitHub</a>
-                            <a class="btn btn-chip" href="https://example.com" target="_blank"
-                                rel="noopener noreferrer">Live Demo</a>
                             <button class="btn btn-chip" type="button" data-expand-target="threadwaveExpand"
                                 aria-expanded="false" aria-controls="threadwaveExpand">View Details</button>
                         </div>
@@ -647,6 +721,48 @@
             </div>
         </section>
 
+        <section class="section achievements" id="achievements" aria-labelledby="achievements-title">
+            <div class="shell reveal">
+                <h2 id="achievements-title" class="section-heading">Certifications &amp; Hackathons</h2>
+
+                <ul class="cert-minimal-list achievement-unified-list" aria-label="Certifications and hackathons list">
+                    <li class="cert-minimal-item">
+                        <span>Google Hackathon (Karunya Verse)</span>
+                        <button class="btn btn-chip cert-view-btn" type="button"
+                            data-certificate="G-K_Hacks_2025_1519_URK25CS9086_DHANYASHRI CHANDRASEKARAN_Certificate.pdf"
+                            data-caption="Google Hackathon (Karunya Verse)">View Certificate</button>
+                    </li>
+                    <li class="cert-minimal-item">
+                        <span>TN Wise Hackathon</span>
+                        <button class="btn btn-chip cert-view-btn" type="button" data-certificate="tnwise.pdf"
+                            data-caption="TN Wise Hackathon">View Certificate</button>
+                    </li>
+                    <li class="cert-minimal-item">
+                        <span>Aurelion 24-Hour Hackathon</span>
+                        <button class="btn btn-chip cert-view-btn" type="button" data-certificate="aurelion.pdf"
+                            data-caption="Aurelion 24-Hour Hackathon">View Certificate</button>
+                    </li>
+                    <li class="cert-minimal-item">
+                        <span>Cisco IoT Introduction &mdash; Cisco</span>
+                        <button class="btn btn-chip cert-view-btn" type="button"
+                            data-certificate="Introduction_to_IoT_certificate_dhanyashrichandrasekaran-karunya-edu-in_f6525375-e9f1-479b-9382-381d756a1c77.pdf"
+                            data-caption="Cisco IoT Introduction">View Certificate</button>
+                    </li>
+                    <li class="cert-minimal-item">
+                        <span>Cisco HTML Essentials &mdash; Cisco</span>
+                        <button class="btn btn-chip cert-view-btn" type="button"
+                            data-certificate="HTML_Essentials_certificate_.pdf"
+                            data-caption="Cisco HTML Essentials">View Certificate</button>
+                    </li>
+                    <li class="cert-minimal-item">
+                        <span>MATLAB Onramp &mdash; MathWorks</span>
+                        <button class="btn btn-chip cert-view-btn" type="button" data-certificate="matlab onwrap.pdf"
+                            data-caption="MATLAB Onramp">View Certificate</button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
         <section class="section contact-center" id="contact" aria-labelledby="contact-title">
             <div class="shell reveal">
                 <h2 id="contact-title" class="section-heading">Contact</h2>
@@ -682,6 +798,7 @@
             <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous image">‹</button>
             <div class="lightbox-stage">
                 <img class="lightbox-image" src="" alt="" />
+                <iframe class="lightbox-document" src="about:blank" title="Certificate document"></iframe>
                 <p class="lightbox-caption"></p>
             </div>
             <button class="lightbox-nav lightbox-next" type="button" aria-label="Next image">›</button>

@@ -121,10 +121,12 @@ body {
 
 .nav-shell {
     min-height: 78px;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 0.9rem;
+    padding: 16px clamp(32px, 4vw, 40px);
+    position: relative;
 }
 
 .brand {
@@ -138,16 +140,20 @@ body {
     display: grid;
     place-items: center;
     background: linear-gradient(140deg, color-mix(in hsl, var(--primary) 24%, transparent), color-mix(in hsl, var(--accent) 24%, transparent));
+    flex: 0 0 auto;
+}
+
+.nav-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .site-nav {
-    justify-self: center;
     display: flex;
-    gap: 0.45rem;
-    padding: 0.35rem;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: color-mix(in hsl, var(--surface) 78%, transparent);
+    align-items: center;
+    gap: 1.4rem;
+    padding: 0;
 }
 
 .nav-link {
@@ -155,8 +161,8 @@ body {
     color: var(--muted);
     font-weight: 500;
     font-size: 0.93rem;
-    padding: 0.45rem 0.88rem;
-    border-radius: 999px;
+    padding: 0.3rem 0.1rem;
+    border-radius: 8px;
     transition: color 0.3s ease, background-color 0.3s ease;
 }
 
@@ -164,7 +170,14 @@ body {
 .nav-link:hover,
 .nav-link:focus-visible {
     color: var(--text);
-    background: color-mix(in hsl, var(--primary) 22%, transparent);
+    background: color-mix(in hsl, var(--primary) 16%, transparent);
+}
+
+.nav-controls {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
 }
 
 .theme-toggle,
@@ -697,6 +710,15 @@ body {
     box-shadow: 0 18px 34px rgba(4, 10, 24, 0.28);
 }
 
+.featured-employee .project-info {
+    border: 1px solid color-mix(in hsl, var(--line) 70%, var(--primary));
+    box-shadow: 0 14px 30px rgba(4, 10, 24, 0.22);
+}
+
+.featured-employee:hover .project-info {
+    box-shadow: 0 18px 36px rgba(4, 10, 24, 0.3);
+}
+
 .project-media {
     position: relative;
 }
@@ -826,6 +848,66 @@ body {
     animation-delay: 1s;
 }
 
+.agrisync-signal-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.55rem;
+}
+
+.agri-icon-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.3rem 0.62rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: color-mix(in hsl, var(--surface) 82%, transparent);
+    font-size: 0.74rem;
+    color: color-mix(in hsl, var(--text) 90%, var(--muted));
+}
+
+.agri-drop-icon {
+    width: 14px;
+    height: 14px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    display: inline-block;
+    background: linear-gradient(160deg, color-mix(in hsl, var(--primary) 90%, white), color-mix(in hsl, var(--primary) 58%, transparent));
+    box-shadow: 0 0 10px color-mix(in hsl, var(--primary) 24%, transparent);
+    animation: waterDropFloat 2.5s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+.agri-wave-icon {
+    height: 14px;
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.agri-wave-icon i {
+    width: 2px;
+    height: 8px;
+    display: block;
+    border-radius: 999px;
+    background: linear-gradient(180deg, color-mix(in hsl, var(--primary) 92%, white), color-mix(in hsl, var(--primary) 56%, transparent));
+    box-shadow: 0 0 8px color-mix(in hsl, var(--primary) 20%, transparent);
+    animation: pestWavePulse 1.2s ease-in-out infinite;
+}
+
+.agri-wave-icon i:nth-child(1) {
+    animation-delay: -0.24s;
+}
+
+.agri-wave-icon i:nth-child(2) {
+    animation-delay: -0.08s;
+}
+
+.agri-wave-icon i:nth-child(3) {
+    animation-delay: -0.3s;
+}
+
 .agrisync-label {
     margin: 0;
     font-size: 0.95rem;
@@ -869,6 +951,88 @@ body {
 
 .media-learnova {
     padding: 1rem;
+}
+
+.media-employee {
+    padding: 1rem;
+    gap: 0.75rem;
+}
+
+.employee-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.48rem;
+}
+
+.employee-chip-row span {
+    padding: 0.3rem 0.64rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    border: 1px solid var(--line);
+    background: color-mix(in hsl, var(--surface) 82%, transparent);
+}
+
+.employee-highlight {
+    margin: 0;
+    font-size: 0.94rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: color-mix(in hsl, var(--primary) 90%, white);
+    text-shadow: 0 0 10px color-mix(in hsl, var(--primary) 34%, transparent);
+}
+
+.employee-chart-bars {
+    height: 82px;
+    width: min(92%, 280px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 8px;
+}
+
+.employee-chart-bars span {
+    width: 12px;
+    height: var(--h);
+    border-radius: 999px;
+    background: linear-gradient(180deg, color-mix(in hsl, var(--primary) 92%, white), color-mix(in hsl, var(--primary) 55%, transparent));
+    box-shadow: 0 0 12px color-mix(in hsl, var(--primary) 24%, transparent);
+    animation: employeeBarPulse 1.9s ease-in-out infinite;
+}
+
+.employee-chart-bars span:nth-child(2) {
+    animation-delay: -0.24s;
+}
+
+.employee-chart-bars span:nth-child(3) {
+    animation-delay: -0.12s;
+}
+
+.employee-chart-bars span:nth-child(4) {
+    animation-delay: -0.35s;
+}
+
+.employee-chart-bars span:nth-child(5) {
+    animation-delay: -0.18s;
+}
+
+.employee-line-track {
+    width: min(92%, 280px);
+    height: 26px;
+    border-radius: 999px;
+    border: 1px solid color-mix(in hsl, var(--line) 72%, transparent);
+    background: color-mix(in hsl, var(--surface) 82%, transparent);
+    padding: 0.34rem 0.52rem;
+}
+
+.employee-line-track span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, color-mix(in hsl, var(--primary) 64%, transparent) 0%, color-mix(in hsl, var(--primary) 94%, white) 35%, color-mix(in hsl, var(--primary) 64%, transparent) 100%);
+    transform-origin: left center;
+    animation: employeeLineSweep 2.4s ease-in-out infinite;
 }
 
 .chat-preview {
@@ -1006,6 +1170,54 @@ body {
     color: var(--text);
 }
 
+.agri-dual-grid {
+    margin-top: 0.9rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+}
+
+.agri-feature-card {
+    border: 1px solid color-mix(in hsl, var(--line) 72%, transparent);
+    background: color-mix(in hsl, var(--surface) 86%, transparent);
+    border-radius: 14px;
+    padding: 0.8rem;
+}
+
+.agri-feature-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-wrap: wrap;
+}
+
+.agri-feature-heading h4 {
+    margin: 0;
+    font-size: 0.98rem;
+}
+
+.agri-feature-tag {
+    margin-left: auto;
+    padding: 0.18rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in hsl, var(--line) 75%, transparent);
+    background: color-mix(in hsl, var(--surface-2) 82%, transparent);
+    font-size: 0.72rem;
+    color: color-mix(in hsl, var(--text) 90%, var(--muted));
+}
+
+.agri-feature-list {
+    margin-top: 0.55rem;
+}
+
+.project-expand.open .agri-feature-card {
+    animation: featureSlideUp 0.45s ease both;
+}
+
+.project-expand.open .agri-feature-card:nth-child(2) {
+    animation-delay: 0.08s;
+}
+
 .project-gallery {
     margin-top: 0.65rem;
     display: grid;
@@ -1075,6 +1287,48 @@ body {
     margin-top: 0.35rem;
 }
 
+.achievements .shell {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.achievement-unified-list {
+    margin-top: 0.1rem;
+}
+
+.cert-minimal-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid color-mix(in hsl, var(--line) 65%, transparent);
+}
+
+.cert-minimal-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+    padding: 0.78rem 0;
+    border-bottom: 1px solid color-mix(in hsl, var(--line) 65%, transparent);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.cert-minimal-item span {
+    color: color-mix(in hsl, var(--text) 94%, var(--muted));
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.cert-minimal-item .btn {
+    white-space: nowrap;
+}
+
+.cert-minimal-item:hover,
+.cert-minimal-item:focus-within {
+    transform: translateY(-2px);
+    border-bottom-color: color-mix(in hsl, var(--primary) 48%, var(--line));
+}
+
 .lightbox {
     position: fixed;
     inset: 0;
@@ -1127,6 +1381,25 @@ body {
 .lightbox-image.is-changing {
     opacity: 0;
     transform: scale(0.98) translateY(6px);
+}
+
+.lightbox-document {
+    width: min(92vw, 980px);
+    height: min(78vh, 900px);
+    border-radius: 14px;
+    border: 1px solid color-mix(in hsl, var(--line) 82%, transparent);
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.42);
+    background: #fff;
+    display: none;
+}
+
+.lightbox.document-mode .lightbox-image,
+.lightbox.document-mode .lightbox-nav {
+    display: none;
+}
+
+.lightbox.document-mode .lightbox-document {
+    display: block;
 }
 
 .lightbox-caption {
@@ -1314,6 +1587,72 @@ body.lightbox-open {
     }
 }
 
+@keyframes waterDropFloat {
+
+    0%,
+    100% {
+        transform: rotate(-45deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-45deg) translateY(-2px);
+    }
+}
+
+@keyframes pestWavePulse {
+
+    0%,
+    100% {
+        height: 6px;
+        opacity: 0.82;
+    }
+
+    45% {
+        height: 14px;
+        opacity: 1;
+    }
+}
+
+@keyframes featureSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes employeeBarPulse {
+
+    0%,
+    100% {
+        transform: scaleY(0.88);
+        opacity: 0.9;
+    }
+
+    50% {
+        transform: scaleY(1.06);
+        opacity: 1;
+    }
+}
+
+@keyframes employeeLineSweep {
+
+    0%,
+    100% {
+        transform: scaleX(0.38);
+        opacity: 0.82;
+    }
+
+    45% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
 @keyframes galleryIn {
     from {
         opacity: 0;
@@ -1353,20 +1692,26 @@ body.lightbox-open {
 
 @media (max-width: 980px) {
     .nav-shell {
-        grid-template-columns: auto auto auto;
+        padding: 14px 20px;
+    }
+
+    .nav-wrapper {
+        position: static;
     }
 
     .site-nav {
         position: absolute;
-        top: 78px;
-        left: 4%;
-        right: 4%;
+        top: calc(100% + 8px);
+        left: 20px;
+        right: 20px;
         border-radius: 16px;
         display: none;
         padding: 0.55rem;
         justify-content: flex-start;
         flex-direction: column;
         align-items: stretch;
+        gap: 0.32rem;
+        border: 1px solid var(--line);
         background: var(--glass);
         backdrop-filter: blur(10px);
     }
@@ -1472,14 +1817,14 @@ body.lightbox-open {
 
     .nav-shell {
         min-height: 70px;
-        grid-template-columns: auto 1fr auto auto;
-        gap: 0.6rem;
+        gap: 0.55rem;
+        padding: 12px 16px;
     }
 
     .site-nav {
-        top: 70px;
-        left: 3%;
-        right: 3%;
+        top: calc(100% + 8px);
+        left: 16px;
+        right: 16px;
         padding: 0.62rem;
     }
 
@@ -1567,6 +1912,27 @@ body.lightbox-open {
 
     .chat-preview {
         width: min(100%, 360px);
+    }
+
+    .employee-chart-bars {
+        height: 72px;
+    }
+
+    .employee-chart-bars span {
+        width: 10px;
+    }
+
+    .cert-minimal-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .agri-dual-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .agri-feature-tag {
+        margin-left: 0;
     }
 
     .project-gallery {
